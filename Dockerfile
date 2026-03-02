@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 # Копируем файл конфигурации nginx
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/default_conf
 
 # Копируем статические файлы сайта
 COPY site /etc/static/web-site
@@ -10,5 +10,6 @@ COPY site /etc/static/web-site
 RUN nginx -t
 
 EXPOSE 80
+
 
 CMD ["nginx", "-g", "daemon off;"]
